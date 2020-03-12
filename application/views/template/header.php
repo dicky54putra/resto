@@ -20,12 +20,12 @@
             <div class="collapse navbar-collapse" id="collapsibleNavId">
                 <nav class="navbar-nav justify-content-center">
                     <a class="nav-link" href="<?= site_url('masakan') ?>">Masakan</a>
-                    <a class="nav-link" href="#">Kategori masakan</a>
-                    <a class="nav-link" href="#">User</a>
-                    <a class="nav-link" href="#">Meja</a>
-                    <a class="nav-link" href="#">Order</a>
-                    <a class="nav-link" href="#">Transaksi</a>
-                    <a class="nav-link" style="align-items: fa-pull-right" href="#">profil</a>
+                    <a class="nav-link" href="<?= site_url('masakan_kategori') ?>">Kategori masakan</a>
+                    <a class="nav-link" href="<?= site_url('user') ?>">User</a>
+                    <a class="nav-link" href="<?= site_url('meja') ?>">Meja</a>
+                    <a class="nav-link" href="<?= site_url('order') ?>">Order</a>
+                    <a class="nav-link" href="<?= site_url('transaksi') ?>">Transaksi</a>
+                    <a class="nav-link" href="<?= site_url('profil') ?>">profil</a>
                 </nav>
             </div>
         </div>

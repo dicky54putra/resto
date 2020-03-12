@@ -2,8 +2,8 @@
     <?= $this->session->flashdata('message') ?>
     <div class="row mb-3 mt-3">
         <div class="col-lg-8">
-            <a href="<?= site_url('masakan/insert') ?>" class="btn btn-primary">Tambah Makanan</a>
-            <a href="<?= site_url('masakan') ?>" class="btn btn-success">refresh</a>
+            <a href="<?= site_url('masakan_kategori/insert') ?>" class="btn btn-primary">Tambah Makanan</a>
+            <a href="<?= site_url('masakan_kategori') ?>" class="btn btn-success">refresh</a>
         </div>
         <div class="col-lg-4">
             <table style="width: 100%;">
@@ -28,23 +28,19 @@
         <thead class="thead-inverse">
             <tr>
                 <th>no</th>
-                <th>Nama masakan</th>
-                <th>Harga</th>
-                <th>kategori</th>
+                <th>Nama kategori makanan</th>
                 <th>aksi</th>
             </tr>
         </thead>
         <tbody>
             <?php $no = 1; ?>
-            <?php foreach ($masakanall as $key) : ?>
+            <?php foreach ($mkall as $key) : ?>
                 <tr>
                     <td scope="row"><?= $no++ ?></td>
-                    <td><?= $key['masakan_nama'] ?></td>
-                    <td><?= $key['masakan_harga'] ?></td>
                     <td><?= $key['mk_nama'] ?></td>
                     <td>
-                        <a class="btn btn-success btn-sm" href="<?= site_url('masakan/update/') . $key['masakan_id'] ?>">Edit</a>
-                        <a class="btn btn-danger btn-sm" href="<?= site_url('masakan/delete/') . $key['masakan_id'] ?>" onclick="return confirm('Anda yakin menghapusnya?')">Hapus</a>
+                        <a class="btn btn-success btn-sm" href="<?= site_url('masakan_kategori/update/') . $key['mk_id'] ?>">Edit</a>
+                        <a class="btn btn-danger btn-sm" href="<?= site_url('masakan_kategori/delete/') . $key['mk_id'] ?>" onclick="return confirm('Anda yakin menghapusnya?')">Hapus</a>
                     </td>
                 </tr>
             <?php endforeach ?>
