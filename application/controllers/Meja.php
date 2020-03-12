@@ -7,6 +7,9 @@ class Meja extends CI_Controller
     {
         parent::__construct();
         $this->load->model('meja_model');
+        if (!$this->session->userdata('login') == 'login') {
+            redirect('auth');
+        }
     }
 
     public function index()

@@ -7,6 +7,9 @@ class Masakan extends CI_Controller
     {
         parent::__construct();
         $this->load->model('masakan_model');
+        if (!$this->session->userdata('login') == 'login') {
+            redirect('auth');
+        }
     }
 
     public function index()
