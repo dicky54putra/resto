@@ -25,7 +25,7 @@
                     <a class="nav-link" href="<?= site_url('meja') ?>">Meja</a>
                     <a class="nav-link" href="<?= site_url('order') ?>">Order</a>
                     <a class="nav-link" href="<?= site_url('transaksi') ?>">Transaksi</a>
-                    <a class="nav-link" href="<?= site_url('profil') ?>">profil</a>
+                    <a class="nav-link" href="<?= site_url('auth/logout') ?>">profil</a>
                 </nav>
             </div>
         </div>
