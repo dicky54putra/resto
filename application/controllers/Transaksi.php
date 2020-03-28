@@ -33,7 +33,8 @@ class Transaksi extends CI_Controller
             'title' => 'Halaman transaksi',
             'meja_no' => $id,
             'od' => $this->transaksi_model->getAllOd($id),
-            'total_harga' => $q
+            'total_harga' => $q,
+            'order' => $order
         ];
 
         $this->form_validation->set_rules('bayar', 'uang', 'required');
@@ -59,6 +60,9 @@ class Transaksi extends CI_Controller
                 ];
                 // var_dump($data);
                 // die;
+                $this->db->insert('transaksi', $data);
+                $this->db->where('meja_no', $id);
+                $this->db->update('meja', ['meja_status' => 1]);
                 redirect('transaksi/detail/' . $id);
             }
         }
@@ -66,5 +70,10 @@ class Transaksi extends CI_Controller
 
     public function struk($id)
     {
+        $d = [
+            'tr' => $this->transaksi_model->getTransByID($id),
+            'od' => $this->transaksi_model->getOd($id)
+        ];
+        $this->load->view('transaksi/struk', $d);
     }
 }

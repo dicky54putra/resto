@@ -6,7 +6,7 @@
                     Order detail
                 </div>
                 <div class="card-body">
-                    <table class="table table-striped table-inverse table-responsive">
+                    <table class="table table-striped table-inverse ">
                         <thead class="thead-inverse">
                             <tr>
                                 <th>No</th>
@@ -14,7 +14,6 @@
                                 <th>Jumlah</th>
                                 <th>Harga</th>
                                 <th>Keterangan</th>
-                                <th>Aksi</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -26,20 +25,28 @@
                                     <td><?= $key['od_jumlah'] ?></td>
                                     <td><?= $key['od_harga'] ?></td>
                                     <td><?= $key['od_keterangan'] ?></td>
-                                    <td>
-                                        <a href="<?= site_url('order/detail/' . $meja_no . "/" . $key['od_id']) ?>" class="btn btn-sm btn-danger">Hapus</a>
-                                    </td>
                                 </tr>
                             <?php endforeach ?>
                         </tbody>
                     </table>
                     <b>Total harga : Rp.<?= $total_harga['od_harga'] ?></b>
                     <?= $this->session->flashdata('message') ?>
+                    <?php
+                    $id = $order['order_id'];
+                    $tr = $this->db->get_where('transaksi', ['order_id' => $id])->row_array();
+                    if ($tr) {
+                        $disabled = '';
+                        $disabled2 = 'disabled';
+                    } else {
+                        $disabled = 'disabled';
+                        $disabled2 = '';
+                    }
+                    ?>
                     <table class="mt-1">
                         <tr>
                             <form action="" method="post">
-                                <td><input type="number" name="bayar" class="form-control"></td>
-                                <td><button type="submit" class="btn btn-primary"> Bayar</button></td>
+                                <td><input type="number" name="bayar" class="form-control" <?= $disabled2 ?>></td>
+                                <td><button type="submit" class="btn btn-primary" <?= $disabled2 ?>> Bayar</button></td>
                             </form>
                         </tr>
                         <tr>
@@ -49,6 +56,7 @@
                 </div>
             </div>
             <a href="<?= site_url('transaksi') ?>" class="btn btn-success mt-3"> Kembali</a>
+            <a href="<?= site_url('transaksi/struk/' . $id) ?>" target="_BLANK" class="btn btn-warning mt-3 <?= $disabled ?>"> Cetak</a>
         </div>
     </div>
 </div>
